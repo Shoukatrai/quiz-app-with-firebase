@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+   <link rel="icon" type="image / x-icon " href="./assets/WhatsApp Image 2025-01-31 at 02.07.12_9bed2f9b.jpg">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="wlcome-image">
+            <img src="./assets/WhatsApp Image 2025-01-31 at 02.07.12_9bed2f9b.jpg" alt="">
+        </div>
+        <div class="login">
+            <h1>Welcome Back!</h1>
+            <div class="email">
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email" placeholder="Enter your email ">
+            </div>
+
+            <div class="password">
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password" placeholder="Enter your password">
+            </div>
+            <div class="btn">
+                <button onclick="loginHnadler()">Log in</button>
+                <p>Not have an Account?</p>
+                <a href="./auth/signup/sign.html">Sign Up</a>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+<script type="module" src="./auth/login/login.js"></script>
+
+</html>
