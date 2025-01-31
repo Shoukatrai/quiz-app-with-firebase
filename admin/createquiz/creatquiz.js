@@ -1,3 +1,5 @@
+import { addDoc, collection, db } from "../../firebase.js"
+
 const title = document.getElementById("title")
 const desc = document.getElementById("desc")
 const category = document.getElementById("category")
@@ -74,6 +76,9 @@ const createQuiz = async () => {
     try {
         savObject.questions = questArray
         console.log(savObject)
+        const quizData = await addDoc(collection(db , "quizzes"),savObject)
+        console.log(quizData)
+        alert("Quiz created successfully!")
         qustions.style.display = "none";
         form.style.display = "block"
         title.value = ""
