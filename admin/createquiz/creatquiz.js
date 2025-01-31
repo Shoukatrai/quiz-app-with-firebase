@@ -75,6 +75,7 @@ const questionHandler = () => {
 const createQuiz = async () => {
     try {
         savObject.questions = questArray
+        savObject.isActive = false
         console.log(savObject)
         const quizData = await addDoc(collection(db , "quizzes"),savObject)
         console.log(quizData)
