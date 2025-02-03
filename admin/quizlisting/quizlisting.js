@@ -3,9 +3,9 @@ import { collection, db, doc, getDocs, updateDoc } from "../../firebase.js"
 
 const quizContainer = document.getElementById("quizContainer")
 const showQuiz = async () => {
+    quizContainer.innerHTML = ""
     const quizzes = await getDocs(collection(db, "quizzes"))
     quizzes.forEach((doc) => {
-        quizContainer.innerHTML = ""
         const quizData = doc.data()
         console.log(quizData)
         quizContainer.innerHTML += `<div class="card">

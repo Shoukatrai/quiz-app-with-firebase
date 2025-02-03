@@ -56,7 +56,7 @@ const questionHandler = () => {
 
 
     const obj = {
-        qustion: quest.value,
+        question: quest.value,
         options: [option1.value, option2.value, option3.value, option4.value],
         correctAns: correctAns.value
     }

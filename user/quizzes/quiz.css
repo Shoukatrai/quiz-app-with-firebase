@@ -44,15 +44,33 @@ img {
     align-items: center;
 }
 
-
+.parent{
+    display: flex;
+    flex-wrap: wrap;
+}
 
 .card {
     background-color: #01E1E1;
-    width: fit-content;
+    width: 300px;
+    height: 300px;
     padding: 20px;
     margin: 20px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    align-self: center;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    text-align: center;
+}
+
+.card button{
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-weight: bold;
+    margin: 10px;
+}
+.card button:active{
+    border: 1px solid black;
 }
 
 @media (max-width: 600px) {
