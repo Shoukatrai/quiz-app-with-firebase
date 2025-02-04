@@ -6,6 +6,81 @@
     box-sizing: border-box;
 }
 
+
+.quiz-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    gap: 30px;
+}
+.card button:hover {
+    opacity: 1;
+}
+.active {
+    width: 100%;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    opacity: 0.9;
+    background-color: green;
+}
+
+.active:hover{
+    background-color: rgba(0, 128, 0, 0.689);
+}
+.inactive {
+    width: 100%;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    opacity: 0.9;
+    background-color: red;
+}
+
+.inactive:hover{
+    background-color: rgba(255, 0, 0, 0.772);
+}
+
+.active:active{
+    border: 1px solid black;
+}
+.inactive:active{
+    border: 1px solid black;
+}
+
+.nav-item {
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.btn {
+    background-color: #01E1E1;
+}
+
+.btn:hover {
+    background-color: #01e1e186;
+}
+
+.btn:active {
+    border: 1px solid black;
+    background-color: whitesmoke;
+}
+
+.card button:active {
+    border: 1px solid black;
+}
+.card {
+    width: 200px;
+    padding: 10px;
+    text-align: center;
+    align-items: center;
+    background-color: #01E1E1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
 body {
     font-family: "Playfair Display", serif;
     font-optical-sizing: auto;

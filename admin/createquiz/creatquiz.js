@@ -92,8 +92,15 @@ const createQuiz = async () => {
     }
 }
 
+const logOut = ()=>{
+    console.log("logOut")
+    localStorage.clear()
+    window.location.replace("../../index.html")
+}
 
 
+
+window.logOut = logOut
 window.createQuiz = createQuiz
 window.quizHandler = quizHandler
 window.questionHandler = questionHandler

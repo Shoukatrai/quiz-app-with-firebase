@@ -24,19 +24,24 @@ console.log(parent)
 const quizList = async () => {
     try {
         console.log("quizList")
-        
-        const quizlsiting = await getDocs(collection(db , "quizzes"))
+
+        const quizlsiting = await getDocs(collection(db, "quizzes"))
         console.log(quizlsiting)
-        quizlsiting.forEach((doc)=>{
+        quizlsiting.forEach((doc) => {
             const quizData = doc.data()
             console.log(quizData)
-            parent.innerHTML += `
-        <div class="card">
-            <h1> ${quizData.title} </h1>
-            <h2> ${quizData.category} </h2>
-            <h3> ${quizData.desc} </h3>
-            <button onclick = "startQuiz('${doc.id}')">Start</button>
-        </div>`
+            if (quizData.isActive == true) {
+                console.log("true")
+                parent.innerHTML += `
+                <div class="card">
+                    <h1> ${quizData.title} </h1>
+                    <h2> ${quizData.category} </h2>
+                    <h3> ${quizData.desc} </h3>
+                    <button onclick = "startQuiz('${doc.id}')">Start</button>
+                </div>`
+            }else{
+                console.log("false")
+            }
         })
     } catch (error) {
         console.log(error)
@@ -44,9 +49,9 @@ const quizList = async () => {
     }
 }
 
-const startQuiz = (id)=>{
+const startQuiz = (id) => {
     console.log(id)
-    sessionStorage.setItem("quizId" , id)
+    sessionStorage.setItem("quizId", id)
     window.location.assign("../quizapp/quizapp.html")
 }
 

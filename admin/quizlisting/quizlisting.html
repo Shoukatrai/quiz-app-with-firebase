@@ -45,7 +45,7 @@
 
 
 
-        <button class="btn">Log out</button>
+        <button class="btn" onclick="logOut()">Log out</button>
 
       </div>
     </div>
@@ -56,6 +56,12 @@
 
   </div>
 </body>
+
+<script type="module">
+  import { autCheck} from "../../utils/utils.js"
+  autCheck()
+</script>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
   integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <script type="module" src="./quizlisting.js"></script>

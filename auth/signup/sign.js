@@ -8,6 +8,10 @@ const password = document.querySelector("#password")
 
 const signUpHandler = async ()=>{
     try {
+        if(firstName.value == ""|| lastName.value == "" || email.value == "" || password.value == ""){
+            alert("First Name, Email , Password are required!")
+            return
+        }
         const dataOj = {
             firstName:firstName.value,
             lastName:lastName.value,

@@ -3,6 +3,21 @@ import { auth, db, doc, getDoc, signInWithEmailAndPassword } from "../../firebas
 const email = document.querySelector("#email")
 const password = document.querySelector("#password")
 
+const loginCheck =()=>{
+    console.log("loginCheck")
+    const user = JSON.parse(localStorage.getItem("user"))
+    console.log(user)
+    if(user){
+        if(user.userType == "admin"){
+            window.location.assign("../../admin/dashboard/dash.html")
+           
+        }else{
+            window.location.assign("../../user/dashboard/dash.html")
+        }
+    }
+}
+
+
 const loginHnadler = async () => {
     try {
         const loginUser = await signInWithEmailAndPassword(auth, email.value, password.value)
@@ -24,4 +39,8 @@ const loginHnadler = async () => {
 
 }
 
+
+
+
+window.loginCheck = loginCheck
 window.loginHnadler = loginHnadler

@@ -35,5 +35,14 @@ const statusCheck = async (ele, status) => {
 }
 
 
+const logOut = ()=>{
+    console.log("logOut")
+    localStorage.clear()
+    window.location.replace("../../index.html")
+}
+
+
+
+window.logOut = logOut
 window.statusCheck = statusCheck
 window.showQuiz = showQuiz
