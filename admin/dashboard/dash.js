@@ -42,7 +42,16 @@ const logOut = ()=>{
 }
 
 
+const adminCheck = ()=>{
+    const user = JSON.parse(localStorage.getItem("user"))
+    if(user.userType == "user"){
+        window.location.replace("../../user/dashboard/dash.html")
+        return
+    }
+}
 
+
+window.adminCheck = adminCheck
 window.statusCheck = statusCheck
 window.showQuiz = showQuiz
 window.logOut = logOut

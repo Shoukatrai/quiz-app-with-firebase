@@ -39,7 +39,7 @@ const quizList = async () => {
                     <h3> ${quizData.desc} </h3>
                     <button onclick = "startQuiz('${doc.id}')">Start</button>
                 </div>`
-            }else{
+            } else {
                 console.log("false")
             }
         })
@@ -56,6 +56,13 @@ const startQuiz = (id) => {
 }
 
 
+const logOut = () => {
+    localStorage.clear()
+    alert("Log out Successful!")
+    window.location.replace("../../index.html")
+}
+
+window.logOut = logOut
 window.startQuiz = startQuiz
 window.quizList = quizList
 window.adminCheck = adminCheck
