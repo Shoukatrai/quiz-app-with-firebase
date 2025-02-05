@@ -40,6 +40,14 @@ const editDetail = (ele) => {
     console.log(ele.parentNode.children[1].value)
 }
 
+const logOut = ()=>{
+    console.log("logOut")
+    localStorage.clear()
+    alert("Log out Successful!")
+    window.location.replace("../../index.html")
+}
+
+window.logOut = logOut
 window.showProfileDetail = showProfileDetail
 window.adminCheck = adminCheck
 window.editDetail = editDetail
