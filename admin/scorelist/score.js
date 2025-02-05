@@ -3,18 +3,21 @@ import { collection, db, doc, getDocs, query, where } from "../../firebase.js";
 const optionContainer = document.getElementById("optionContainer")
 
 const scoreTable = document.getElementById("scoreTable")
+
+
 const container = document.getElementById("container")
+
 const scoreListing = async () => {
     try {
-        console.log("scoreListing")
         const user = JSON.parse(localStorage.getItem("user"))
-        // console.log(user)
+       
+
         const snap = await getDocs(collection(db, "scores"))
         snap.forEach((doc) => {
             const data = doc.data()
             const percent = (data.correctAns / data.totalQue) * 100
             console.log("data", data)
-            container.innerHTML += `
+            scoreTable.innerHTML += `
           <td>01</td>
           <td> ${data.quizTitle} </td>
           <td> ${data.correctAns}  </td>
@@ -48,16 +51,29 @@ const getQuizListing = async () => {
 const quizFilter = async (ele) => {
     try {
         console.log(ele.value)
-        const q = query(collection(db , "scores") , where("quizId" , "==" , ele.value))
-        const score =await getDocs(q)
-        score.forEach((doc)=>{
+        const user =JSON.parse(localStorage.getItem("user"))
+
+
+        const q = query(collection(db, "scores"), where("quizId", "==", ele.value))
+        scoreTable.innerHTML = "";
+        scoreTable.innerHTML = `<tr>
+          <th>No:</th>
+          <th>Quiz Title</th>
+          <th> Score </th>
+          <th> Wrong Answer </th>
+          <th>Total Question</th>
+          <th>Percentage</th>
+        </tr>`
+
+        const score = await getDocs(q)
+        score.forEach((doc) => {
             const data = doc.data()
             const percent = (data.correctAns / data.totalQue) * 100
             console.log(doc.data())
-            
+
             console.log(container)
-            container.innerHTML = ''
-            container.innerHTML += `
+            
+            scoreTable.innerHTML += `
           <td>01</td>
           <td> ${data.quizTitle} </td>
           <td> ${data.correctAns}  </td>
