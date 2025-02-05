@@ -81,7 +81,7 @@ ion-icon {
     display: block;
 }
 
-button {
+.input-container button {
     background: none;
     border: none;
     position: absolute;
