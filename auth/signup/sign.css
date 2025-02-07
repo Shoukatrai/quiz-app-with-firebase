@@ -13,7 +13,8 @@ body {
     font-weight: 500;
     font-style: normal;
 }
-.singup{
+
+.singup {
     background-color: #01E1E1;
     width: 50%;
     margin: 10px auto;
@@ -21,18 +22,18 @@ body {
     border-radius: 10px;
 }
 
-input{
+input {
     padding: 10px;
     width: 100%;
     border-radius: 5px;
     font-size: 18px;
     border: 0.1px solid #01e1e163;
-    margin: 10px 0px;
+    margin: 5px 0px;
     height: 50px;
     outline: none;
 }
 
-input:focus{
+input:focus {
     border: 2px solid black;
 }
 
@@ -51,16 +52,17 @@ button {
     width: 20vw;
 }
 
-button:active{
+button:active {
     border: 1px solid black;
 }
-h1{
+
+h1 {
     text-align: center;
     margin: 10px 0px;
 }
 
 
-.btn{
+.btn {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -68,15 +70,27 @@ h1{
 
 label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 3px;
 }
 
-a{
+input[type="file"] {
+    border: none;
+    display: inline-block;
+    cursor: pointer;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    background-color: aliceblue;
+}
+
+a {
     color: whitesmoke;
     font-size: 20px;
     margin: 10px 0px;
 }
-p{
+
+p {
     margin: 10px 0px;
     font-size: 20px;
 }

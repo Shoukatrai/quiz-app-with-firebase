@@ -40,6 +40,11 @@
             <input type="password" name="password" id="password" placeholder="Create a strong password">
         </div>
 
+        <div class="profileImage">
+            <label for="profileImage">Profile Image:</label>
+            <input type="file" name="file" id="profileImage" placeholder="Create a strong password">
+        </div>
+
         <div class="btn">
             <button onclick=" signUpHandler()">Sign up</button>
             <p>Have an Account?</p>
@@ -50,7 +55,7 @@
 
 
 </body>
-
+<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
 <script type="module" src="sign.js"></script>
 
 </html>
