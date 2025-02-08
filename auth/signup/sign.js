@@ -41,25 +41,25 @@ const signUpHandler = async () => {
             .from('profileImage')
             .upload(ImageFile.name + new Date().getMilliseconds(), ImageFile)
 
-        console.log("data" , data.path)
-        console.log("error" , error)
+        console.log("data", data.path)
+        console.log("error", error)
 
 
-        const { data:url } = supabase
+        const { data: url } = supabaseClient
             .storage
             .from('profileImage')
             .getPublicUrl(data.path)
 
-        console.log("url" , url)
+        console.log("url", url)
 
-        alert("Profile Image Completed!")
-    
+        //save user details on database
         await setDoc(doc(db, "user", user.user.uid), {
             ...dataOj,
             uid: user.user.uid,
             userType: "user",
             isDeleted: false,
-            isBlock: false
+            isBlock: false,
+            imageUrl: url.publicUrl
         })
         alert("Sign up Successfully!")
         window.location.assign("../../index.html")

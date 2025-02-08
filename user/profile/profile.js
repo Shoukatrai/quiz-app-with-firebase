@@ -12,8 +12,13 @@ const adminCheck = () => {
 
 console.log("firstName" , firstName)
 
+
+
+
 const showProfileDetail = async () => {
     try {
+        const profileImage = document.getElementById("profileImage")
+        console.log(profileImage.src , "profileImage")
         const firstName = document.getElementById("firstName")
         const lastName = document.getElementById("lastName")
         const phoneNumber = document.getElementById("phoneNumber")
@@ -27,7 +32,7 @@ const showProfileDetail = async () => {
         lastName.value = userData.lastName
         phoneNumber.value = userData.phoneNumber
         email.value = userData.email
-
+        profileImage.src = userData.imageUrl
 
     } catch (error) {
         console.log(error.message)
