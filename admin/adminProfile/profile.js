@@ -1,19 +1,13 @@
-import { db, doc, getDoc } from "../../firebase.js"
+import { db, getDoc, doc } from "../../firebase.js"
 
 const adminCheck = () => {
     const user = JSON.parse(localStorage.getItem("user"))
     console.log(user)
-    if (user.userType == "admin") {
-        window.location.replace("../../admin/dashboard/dash.html")
+    if (user.userType == "user") {
+        window.location.assign("../../user/dashboard/dash.html")
         return
     }
 }
-
-
-console.log("firstName", firstName)
-
-
-
 
 const showProfileDetail = async () => {
     try {
@@ -37,22 +31,16 @@ const showProfileDetail = async () => {
     } catch (error) {
         console.log(error.message)
     }
-
 }
 
-const editDetail = (ele) => {
-    ele.parentNode.children[1].disabled = false;
-    console.log(ele.parentNode.children[1].value)
-}
 
 const logOut = () => {
     console.log("logOut")
     localStorage.clear()
-    alert("Log out Successful!")
     window.location.replace("../../index.html")
 }
 
+
 window.logOut = logOut
-window.showProfileDetail = showProfileDetail
 window.adminCheck = adminCheck
-window.editDetail = editDetail
+window.showProfileDetail = showProfileDetail

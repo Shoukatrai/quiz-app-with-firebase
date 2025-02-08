@@ -56,7 +56,7 @@ const signUpHandler = async () => {
         await setDoc(doc(db, "user", user.user.uid), {
             ...dataOj,
             uid: user.user.uid,
-            userType: "user",
+            userType: "admin",
             isDeleted: false,
             isBlock: false,
             imageUrl: url.publicUrl
