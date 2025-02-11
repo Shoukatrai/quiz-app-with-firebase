@@ -24,9 +24,12 @@ const loginHnadler = async () => {
         console.log(loginUser)
         const loginId = loginUser.user.uid
         const user =  await getDoc(doc(db ,"user" , loginId))
-        console.log(user.data())
-        localStorage.setItem("user" , JSON.stringify(user.data()))
+        const userData = user.data()
+        console.log("userData" , userData)
+        
+        localStorage.setItem("user" , JSON.stringify(userData))
         alert("Login Successful!")
+        
         if(user.data().userType === "admin"){
             window.location.replace("../../admin/dashboard/dash.html")
         }else{

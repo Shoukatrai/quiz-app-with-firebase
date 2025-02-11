@@ -37,6 +37,18 @@ img {
     background-color: whitesmoke;
 }
 
+.Savebtn{
+    border: none;
+    background-color: whitesmoke;
+    padding: 5px;
+    border-radius: 5px;
+    display: none;
+}
+
+.Savebtn:active{
+    border: 1px solid black;
+}
+
 .hero {
     display: flex;
     gap: 30px;
