@@ -81,6 +81,7 @@ const createQuiz = async () => {
         console.log(quizData)
         alert("Quiz created successfully!")
         qustions.style.display = "none";
+        window.location.reload()
         form.style.display = "block"
         title.value = ""
         desc.value = ""
