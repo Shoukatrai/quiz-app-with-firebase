@@ -35,7 +35,8 @@ const signUpHandler = async () => {
 
         //upload user image
         const ImageFile = profileImage.files[0]
-        console.log(ImageFile)
+        console.log(ImageFile.name + new Date().getMilliseconds() , "name")
+        
         const { data, error } = await supabaseClient
             .storage
             .from('profileImage')
