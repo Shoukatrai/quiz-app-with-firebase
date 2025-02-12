@@ -13,6 +13,13 @@ body {
     font-style: normal;
 }
 
+span{
+    position: relative;
+    right: 32px;
+    top: 5px;
+    color: #11A2A2;
+    font-weight: 700;
+}
 
 img {
     width: 75px;
