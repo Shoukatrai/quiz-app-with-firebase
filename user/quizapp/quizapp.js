@@ -5,13 +5,14 @@ import { addDoc, app, collection, db, doc, getDoc } from "../../firebase.js";
 let questions = [];
 let indexNumber = 0;
 let score = 0;
-let duration = 0;
+
 let quizScore = 0;
 
 const qNumber = document.querySelector(".qNumber");
 const timer = document.querySelector(".timer");
 
 let title = ""
+let durationInMinutes;
 const checkQuizId = async () => {
     try {
         const quizId = sessionStorage.getItem("quizId")
@@ -28,7 +29,9 @@ const checkQuizId = async () => {
         console.log(quizData)
         title = quizData.title
         timer.innerHTML = quizData.duration
+        durationInMinutes = quizData.duration
         document.getElementById("quizName").innerHTML = quizData.title
+        startCountdown()
         return quizData
     } catch (error) {
         console.log(error)
@@ -40,13 +43,40 @@ checkQuizId()
     .then((response) => {
         console.log("response", response)
         questions = response.questions
-        console.log(questions)
+        durationInMinutes = response.duration
+
         console.log(response)
         handleQuestion()
     })
     .catch((error) => {
         console.log(error)
-    })
+    });
+
+
+
+
+const startCountdown = () => {
+    
+    // Calculate the total time in seconds
+    let totalTime = durationInMinutes * 60;
+    console.log(totalTime)
+
+
+    const countdownInterval = setInterval(() => {
+        const minutes = Math.floor(totalTime / 60);
+        const seconds = totalTime % 60;
+
+
+        timer.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+        if (totalTime <= 0) {
+            clearInterval(countdownInterval); // Stop the timer
+            onSubmit()
+        }
+
+        totalTime--;
+    }, 1000);
+}
 
 
 
@@ -111,8 +141,8 @@ const checkAns = (ele) => {
 }
 
 const onSubmit = async () => {
-    try { 
-        document.getElementById("quizContainer").style.display = "none" 
+    try {
+        document.getElementById("quizContainer").style.display = "none"
         document.getElementById("result").style.display = "block"
         console.log("onSubmit")
         console.log(score)
@@ -124,7 +154,7 @@ const onSubmit = async () => {
         totalQue.innerHTML = `Total Questions: ${questions.length}`
 
         const user = JSON.parse(localStorage.getItem("user"))
-        
+
         const obj = {
             correctAns: score,
             wrongAns: questions.length - score,
